@@ -5,12 +5,12 @@ An implementation of the [Net Natives Interview Task](http://akerolabs.com/dev-t
 ## System Requirements
 
 * Apache
-* MySQL
+* Database (MySQL, Postgres, SQLite, and SQL Server)
 * PHP
 
 ## Setup
 
-* Update the database connection variables in `/api/app/.env`, the application is implemented with MySQL in mind, but should work with other database methods supported by Lumen.
+* Setup the database ENV variables using the .env file, or via the control panel in Heroku.
 
 ## Implemented Functionality
 
