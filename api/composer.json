@@ -26,6 +26,12 @@
             "database/"
         ]
     },
+    "scripts": {
+        "post-root-package-install": [
+            //"php -r \"copy('.env.example', '.env');\""
+            "php artisan migrate:install; php artisan db:seed"
+        ]
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
