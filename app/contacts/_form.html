@@ -1,0 +1,23 @@
+<form ng-submit="vm.save()">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input ng-model="vm.contact.name" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="name">Email</label>
+        <input ng-model="vm.contact.email" type="email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="name">Location</label>
+        <input ng-model="vm.contact.location" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="name">Primary</label>
+        <input ng-model="vm.contact.primary" stype="tel" class="form-control" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button ui-sref="contact.query" type="button" class="btn btn-default">Cancel</button>
+        <button ng-click="vm.delete()" type="button" class="btn btn-danger pull-right">Delete</button>
+    </div>
+</form>

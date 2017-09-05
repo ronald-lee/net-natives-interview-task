@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="lead">Contacts</span>
+            <span ng-if="$state.current.name == 'contact.query'">[<a ui-sref="contact.new">New</a>]</span>
+        </div>
+        <div class="panel-body">
+            <div ng-include="'app/contacts/_list.html'"></div>
+        </div>
+        <div ng-if="$state.current.name == 'contact.query'" class="panel-footer">
+            Showing {{vm.contacts.count}} of {{vm.contacts.total}} items
+        </div>
+        <div ng-if="$state.current.name != 'contact.query'" class="panel-footer">
+            <a ui-sref="contact.query($stateParams)">Show More</a>
+        </div>
+    </div>
+</div>

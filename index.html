@@ -1,0 +1,71 @@
+<!doctype html>
+<html ng-app="app">
+
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        a {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body ng-controller="ApplicationController">
+    <!-- The menu -->
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" ui-sref="home" ui-sref-opts="{inherit: false}">Ronald Lee</a>
+            </div>
+            <!-- Search menu -->
+            <form ng-submit="search()" class="navbar-form navbar-left form-inline">
+                <div class="form-group">
+                    <input ng-model="$stateParams.q" type="text" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+            <div class="collapse navbar-collapse">
+                <!-- Features menu -->
+                <ul class="nav navbar-nav">
+                    <li ng-if="$localStorage.token !== null" ui-sref-active="active"><a ui-sref="contact.query($stateParams)">Contacts</a></li>
+                </ul>
+                <!-- Authentication menu -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-if="$localStorage.currentUser !== null" class="navbar-text">Logged in as {{$localStorage.currentUser}}</li>
+                    <li ng-if="$localStorage.token === null" ui-sref-active="active"><a ui-sref="login">Login</a></li>
+                    <li ng-if="$localStorage.token !== null" ui-sref-active="active"><a ui-sref="logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div ui-view></div>
+    <!-- Footer -->
+    <div class="container">
+        <div>
+            <p>Copyright 2017 Ronald Lee. <a ng-click="reset()">Reset All data</a></p>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.6/angular-resource.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
+    <!-- Application -->
+    <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
+    <script src="app/application.controller.js"></script>
+    <!-- Authentication -->
+    <script src="app/authentication/authentication.controller.js"></script>
+    <!-- Contacts -->
+    <script src="app/contacts/contacts.controller.js"></script>
+    <script src="app/contacts/contact-detail.controller.js"></script>
+    <!-- Home -->
+    <script src="app/home/home.controller.js"></script>
+    <!-- Services -->
+    <script src="app/services/authentication.service.js"></script>
+    <script src="app/services/contacts.service.js"></script>
+</body>
+
+</html>

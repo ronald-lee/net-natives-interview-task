@@ -1,0 +1,30 @@
+<div ng-if="vm.contacts.count > 0">
+    <div class="row">
+        <div ng-repeat="contact in vm.contacts.results" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="thumbnail">
+                <div class="caption">
+                    <div class="btn-group pull-right" uib-dropdown is-open="status.isopen">
+                        <button id="single-button" type="button" class="btn btn-default btn-xs" uib-dropdown-toggle ng-disabled="disabled">
+                            <i class="fa fa-ellipsis-h"></i>
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                            <li role="menuitem"><a ng-click="delete(contact)" role="menuitem">Delete</a></li>
+                        </ul>
+                    </div>
+                    <p class="list-group-item-heading lead">
+                        <a ui-sref="contact.show({ id: contact.id })">{{contact.name}}</a>
+                    </p>
+                    <ul class="fa-ul">
+                        <li><i class="fa-li fa fa-map-marker"></i>{{contact.location}}</li>
+                        <li><i class="fa-li fa fa-envelope-o"></i><a ng-href="mailto:{{contact.email}}">{{contact.email}}</a></li>
+                        <li><i class="fa-li fa fa-phone"></i><a ng-href="tel:{{contact.primary}}">{{contact.primary}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-if="vm.contacts.count == 0">
+    No results found.
+</div>

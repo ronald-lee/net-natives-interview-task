@@ -1,0 +1,13 @@
+<form ng-submit="vm.submit()">
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input ng-model="vm.credentials.email" type="email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input ng-model="vm.credentials.password" type="password" class="form-control" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
