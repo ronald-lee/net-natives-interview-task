@@ -28,7 +28,6 @@
     },
     "scripts": {
         "post-root-package-install": [
-            //"php -r \"copy('.env.example', '.env');\""
             "php artisan migrate:install; php artisan db:seed"
         ]
     },
